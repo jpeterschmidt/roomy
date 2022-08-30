@@ -1,7 +1,7 @@
 const { Stack, Duration } = require('aws-cdk-lib');
-// const sqs = require('aws-cdk-lib/aws-sqs');
+const { RoomyFrontEnd } = require('./front-end-infrastructure');
 
-class InfrastructureStack extends Stack {
+class Roomy extends Stack {
   /**
    *
    * @param {Construct} scope
@@ -11,13 +11,8 @@ class InfrastructureStack extends Stack {
   constructor(scope, id, props) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'InfrastructureQueue', {
-    //   visibilityTimeout: Duration.seconds(300)
-    // });
+    new RoomyFrontEnd(this)
   }
 }
 
-module.exports = { InfrastructureStack }
+module.exports = { Roomy }
